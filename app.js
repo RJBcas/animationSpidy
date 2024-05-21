@@ -6,11 +6,13 @@
 var switchInput = document.getElementById('switch');
 switchInput.addEventListener("change", (event => {
     if (event.target.checked) {
+        document.querySelector('.switchButton').classList.add("darckTheme");
         banner.classList.add("darckTheme");
         dots = generateArrayOfDots(calculateNumberOfDots(), calculateSizeDots(), calculateColors(true));
         drawDots();
         clearDots();
     } else {
+        document.querySelector('.switchButton').classList.remove("darckTheme");
         banner.classList.remove('darckTheme')
         dots = generateArrayOfDots(calculateNumberOfDots(), calculateSizeDots(), calculateColors(false));
         drawDots();

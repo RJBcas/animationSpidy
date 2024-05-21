@@ -137,9 +137,6 @@ table {
 .banner {
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .banner #dotsCanvas {
@@ -153,17 +150,23 @@ table {
 }
 
 main {
-    display: flex;
+    display: block;
 }
 
-.banner input {
+.switchButton {
+    padding: 3%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.switchButton input {
     display: none;
 }
 
-.banner label {
+.switchButton label {
     display: block;
-    width: 120px;
-    height: 50px;
+    width: 100px;
+    height: 45px;
     background: radial-gradient(#787c84, #5555);
     border: 1px solid #5555;
     border-radius: 40px;
@@ -171,7 +174,7 @@ main {
     cursor: pointer;
 }
 
-.banner label button {
+.switchButton label button {
     pointer-events: none;
     width: 80%;
     height: 100%;
@@ -189,8 +192,8 @@ main {
     z-index: 100;
 }
 
-.banner label button::before,
-.banner label button::after {
+.switchButton label button::before,
+.switchButton label button::after {
     font-family: "Poppins", sans-serif;
     width: 50%;
     content: 'o';
@@ -198,11 +201,11 @@ main {
     color: #787b84;
 }
 
-.banner label button::after {
+.switchButton label button::after {
     content: '-';
 }
 
-.banner label button::before {
+.banner2 label button::before {
     color: #eee;
     transform: translateY(-3px);
     text-shadow:
@@ -210,27 +213,27 @@ main {
         0 0 5px #eee;
 }
 
-.banner label button::after {
+.banner2 label button::after {
     text-shadow: 0 0 5px #fff;
 }
 
-.banner input:checked~label {
+.switchButton input:checked~label {
     background: radial-gradient(#a787f2, #3c2777);
 }
 
-.banner input:checked~label>button {
+.switchButton input:checked~label>button {
     margin-left: 20%;
     background: linear-gradient(to right,
             #926afe 47%,
             #754de3);
 }
 
-.banner input:checked~label>button::before {
+.switchButton input:checked~label>button::before {
     color: #754de3;
     text-shadow: 0 0 5px #fff5;
 }
 
-.banner input:checked~label>button::after {
+.switchButton input:checked~label>button::after {
     color: #eee;
     text-shadow:
         0 2px 2px #555,
@@ -239,5 +242,79 @@ main {
 
 .darckTheme {
     background-color: #201346;
+}
 
+
+span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    color: #19e1f0;
+    font-size: 124px;
+    letter-spacing: 8px;
+    cursor: pointer;
+}
+
+.darckTheme span {
+    color: #cf1b1b;
+}
+
+span::before {
+    content: "@RjBcas";
+    position: absolute;
+    color: transparent;
+    background-image: repeating-linear-gradient(45deg,
+            transparent 0,
+            transparent 2px,
+            black 2px,
+            black 4px);
+    -webkit-background-clip: text;
+    top: 0px;
+    left: 0;
+    z-index: -1;
+    transition: 1s;
+}
+
+
+span::after {
+    content: "@RjBcas";
+    position: absolute;
+    color: transparent;
+    background-image: repeating-linear-gradient(135deg,
+            transparent 0,
+            transparent 2px,
+            black 2px,
+            black 4px);
+    -webkit-background-clip: text;
+    top: 0px;
+    left: 0px;
+    transition: 1s;
+}
+
+.darckTheme span::before {
+    background-image: repeating-linear-gradient(135deg,
+            transparent 0,
+            transparent 2px,
+            white 2px,
+            white 4px);
+}
+
+.darckTheme span::after {
+    background-image: repeating-linear-gradient(135deg,
+            transparent 0,
+            transparent 2px,
+            white 2px,
+            white 4px);
+}
+
+span:hover:before {
+    top: 10px;
+    left: 10px;
+}
+
+span:hover:after {
+    top: -10px;
+    left: -10px;
 }
