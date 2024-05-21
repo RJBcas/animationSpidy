@@ -135,11 +135,12 @@ table {
 }
 
 .banner {
-    position: relative;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 
 .banner #dotsCanvas {
     position: absolute;
@@ -149,4 +150,94 @@ table {
     width: 100%;
     height: 100%;
     pointer-events: none;
+}
+
+main {
+    display: flex;
+}
+
+.banner input {
+    display: none;
+}
+
+.banner label {
+    display: block;
+    width: 120px;
+    height: 50px;
+    background: radial-gradient(#787c84, #5555);
+    border: 1px solid #5555;
+    border-radius: 40px;
+    box-shadow: 0 3px 15px #0005;
+    cursor: pointer;
+}
+
+.banner label button {
+    pointer-events: none;
+    width: 80%;
+    height: 100%;
+    border: none;
+    border-radius: inherit;
+    background: linear-gradient(to right,
+            #c1c4cc 47%,
+            #dddfe5 53%);
+    box-shadow: inset -2px 0 2px -1px #fff5,
+        inset 2px 0 2px -1px #fff5;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    transition: 2s;
+    z-index: 100;
+}
+
+.banner label button::before,
+.banner label button::after {
+    font-family: "Poppins", sans-serif;
+    width: 50%;
+    content: 'o';
+    font-size: xx-large;
+    color: #787b84;
+}
+
+.banner label button::after {
+    content: '-';
+}
+
+.banner label button::before {
+    color: #eee;
+    transform: translateY(-3px);
+    text-shadow:
+        0 2px 2px #555,
+        0 0 5px #eee;
+}
+
+.banner label button::after {
+    text-shadow: 0 0 5px #fff;
+}
+
+.banner input:checked~label {
+    background: radial-gradient(#a787f2, #3c2777);
+}
+
+.banner input:checked~label>button {
+    margin-left: 20%;
+    background: linear-gradient(to right,
+            #926afe 47%,
+            #754de3);
+}
+
+.banner input:checked~label>button::before {
+    color: #754de3;
+    text-shadow: 0 0 5px #fff5;
+}
+
+.banner input:checked~label>button::after {
+    color: #eee;
+    text-shadow:
+        0 2px 2px #555,
+        0 0 5px #eee;
+}
+
+.darckTheme {
+    background-color: #201346;
+
 }
