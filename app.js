@@ -1,6 +1,35 @@
 //?
 //!
-//todo
+// todo
+// TODO
+
+var switchInput = document.getElementById('switch');
+switchInput.addEventListener("change", (event => {
+    if (event.target.checked) {
+        // TODO Cambiar los colores de los puntos y el background de la pagina 
+        banner.classList.add("darckTheme");
+
+        dots = generateArrayOfDots(calculateNumberOfDots(), calculateSizeDots(), calculateColors(true));
+
+        drawDots();
+        clearDots();
+    } else {
+        // TODO Cambiar los colores de los puntos y el background de la pagina 
+        banner.classList.remove('darckTheme')
+
+        dots = generateArrayOfDots(calculateNumberOfDots(), calculateSizeDots(), calculateColors(false));
+
+        drawDots();
+        clearDots();
+
+    }
+
+}))
+
+
+// TODO
+
+
 // obtener el elemento que vamos a manipular
 let banner = document.querySelector('.banner');
 // Obtener el canvas que se va a manipular.
@@ -16,27 +45,27 @@ let dots = [];
 
 const calculateNumberOfDots = () => {
     if (screen.width <= 320) {
-        return 20;
+        return 25;
     }
     //movil m
     if (screen.width <= 375) {
-        return 25;
+        return 30;
     }
     //movil L
     if (screen.width <= 425) {
-        return 30;
+        return 35;
     }
     // Tablet
     if (screen.width <= 768) {
-        return 40;
+        return 50;
     }
     // Lapto
     if (screen.width <= 1024) {
-        return 50;
+        return 60;
     }
     // Lapto XL
     if (screen.width > 1024) {
-        return 60;
+        return 90;
     }
     return 100;
 }
@@ -61,9 +90,8 @@ const calculateSizeDots = () => {
         return 8;
     }
 }
-const calculateColors = () => {
-    // TODO Validar que estilo tiene la pagina.
-    return ['#008DDA', '#41C9E2', '#ACE2E1', '#F7EEDD']
+const calculateColors = (isDark) => {
+    return isDark ? ['#F7EC09', '#3EC70B', '#3B44F6', '#A149FA'] : ['#3F0071', '#FB2576', '#332FD0', '#0002A1']
 
 }
 // generamos el array de puntos
@@ -79,7 +107,7 @@ const generateArrayOfDots = (numberOfDots, size, colorDots) => {
     }
     return arrayOfDots
 }
-dots = generateArrayOfDots(calculateNumberOfDots(), calculateSizeDots(), calculateColors());
+dots = generateArrayOfDots(calculateNumberOfDots(), calculateSizeDots(), calculateColors(false));
 // pintamos los puntos
 const drawDots = () => {
     dots.forEach(dot => {
