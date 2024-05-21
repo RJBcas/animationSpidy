@@ -6,19 +6,13 @@
 var switchInput = document.getElementById('switch');
 switchInput.addEventListener("change", (event => {
     if (event.target.checked) {
-        // TODO Cambiar los colores de los puntos y el background de la pagina 
         banner.classList.add("darckTheme");
-
         dots = generateArrayOfDots(calculateNumberOfDots(), calculateSizeDots(), calculateColors(true));
-
         drawDots();
         clearDots();
     } else {
-        // TODO Cambiar los colores de los puntos y el background de la pagina 
         banner.classList.remove('darckTheme')
-
         dots = generateArrayOfDots(calculateNumberOfDots(), calculateSizeDots(), calculateColors(false));
-
         drawDots();
         clearDots();
 
@@ -26,8 +20,6 @@ switchInput.addEventListener("change", (event => {
 
 }))
 
-
-// TODO
 
 
 // obtener el elemento que vamos a manipular
